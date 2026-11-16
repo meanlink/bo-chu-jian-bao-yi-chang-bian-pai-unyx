@@ -6,6 +6,6 @@ def dataset_dict(d):
 def job_dict(j):
     return {k:getattr(j,k) for k in ['id','name','dataset_id','params','status','result','error','approved','created_at','finished_at']}
 def report_dict(r):
-    return {k:getattr(r,k) for k in ['id','name','job_id','destination','interval_seconds','next_run','enabled']}
-def delivery_dict(d):
-    return {k:getattr(d,k) for k in ['id','report_id','created_at','checksum','filename','destination']}
+    # 兼容旧调用；日历排程字段由 src.services.reports.report_dict 输出。
+    from src.services.reports import report_dict as build
+    return build(r)

@@ -32,3 +32,6 @@ target/
 *.o
 *.obj
 .DS_Store
+
+# 本地验收测试与截图（约定存放于仓库外的 test-artifacts）
+test-artifacts/
